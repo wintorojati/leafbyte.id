@@ -1,7 +1,7 @@
 :root{
   --bg:#ffffff;
   --text:#0f172a;
-  --muted:#475569;
+  --muted:#383f3a;
   --border:#e2e8f0;
   --brand:#16a34a;      /* green-600 */
   --brand-600:#16a34a;
@@ -21,10 +21,10 @@ img{max-width:100%;height:auto;display:block}
 .container{width:min(1120px,92%);margin-inline:auto}
 
 /* Nav */
-.nav{position:sticky;top:0;background:#ffffffd9;backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--border);z-index:20}
+.nav{position:sticky;top:0;background:#fff;backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--border);z-index:20}
 .nav__inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
-.brand__logo{width:34px;height:34px;border-radius:8px;object-fit:cover}
+.brand__logo{height:34px;object-fit:cover}
 .brand__name{font-weight:700;letter-spacing:.2px}
 .menu{display:flex;align-items:center;gap:18px}
 .menu a{color:var(--muted);text-decoration:none;font-weight:500}
@@ -41,7 +41,7 @@ img{max-width:100%;height:auto;display:block}
 
 /* Sections */
 .section{padding:56px 0}
-.section--alt{background:linear-gradient(180deg,#f8fafc,transparent)}
+.section--alt{background:#fff}
 .section h2{font-size:clamp(22px,4vw,30px);margin:0 0 16px}
 
 /* Cards */
@@ -75,12 +75,12 @@ img{max-width:100%;height:auto;display:block}
 /* Dark mode */
 @media (prefers-color-scheme: dark){
   :root{
-    --bg:#0b1110;
-    --text:#e5f3eb;
-    --muted:#a3b6ad;
-    --border:#183227;
+    --bg:#ffffff;
+    --text:#0f172a;
+    --muted:#383f3a;
+    --border:#e2e8f0;
   }
-  .nav{background:#0b1110e6;border-color:var(--border)}
-  .section--alt{background:linear-gradient(180deg,#0e1a15,transparent)}
-  .card,.contact-box,.footer{background:#0e1a15}
+  .nav{background:#fff;border-color:var(--border)}
+  .section--alt{background:#fff}
+  .card,.contact-box,.footer{background:#fff}
 }
