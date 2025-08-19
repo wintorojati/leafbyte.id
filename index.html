@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LeafByte Prima Nusantara</title>
+    <meta name="description" content="LeafByte Prima Nusantara — perusahaan teknologi Indonesia yang tumbuh dengan semangat keberlanjutan, menghadirkan solusi digital unggul bagi masyarakat Nusantara." />
+
+    <!-- Open Graph / SEO -->
+    <meta property="og:title" content="LeafByte Prima Nusantara" />
+    <meta property="og:description" content="Technology That Grows, Solutions That Thrive" />
+    <meta property="og:image" content="LeafByteId.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://leafbyte.id" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="LeafByteId.png" type="image/png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="nav">
+      <div class="container nav__inner">
+        <a class="brand" href="#home">
+          <img class="brand__logo" src="LeafByteId.png" alt="LeafByte Logo" />
+          <span class="brand__name">LeafByte</span>
+        </a>
+        <nav class="menu">
+          <a href="#about">Tentang</a>
+          <a href="#values">Nilai</a>
+          <a class="btn btn--primary" href="#contact">Hubungi Kami</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero container">
+        <div class="hero__content">
+          <h1>LeafByte Prima Nusantara</h1>
+          <p class="tagline">Technology That Grows, Solutions That Thrive</p>
+          <p class="lede">
+            Perusahaan teknologi Indonesia yang tumbuh dengan semangat keberlanjutan,
+            menghadirkan solusi digital unggul bagi masyarakat Nusantara.
+          </p>
+          <div class="actions">
+            <a class="btn btn--primary" href="#about">Pelajari Visi</a>
+            <a class="btn btn--ghost" href="#contact">Hubungi Kami</a>
+          </div>
+        </div>
+        <div class="hero__visual">
+          <img src="LeafByteId.png" alt="LeafByte Identity" />
+        </div>
+      </section>
+
+      <section id="about" class="section container">
+        <h2>Tentang LeafByte</h2>
+        <p>
+          "Leaf" melambangkan pertumbuhan, keberlanjutan, dan kehidupan. "Byte" adalah unit data
+          digital—representasi teknologi dan modernitas. Keduanya berpadu menjadi <strong>LeafByte</strong>:
+          inovasi digital yang tumbuh secara alami.
+        </p>
+        <p>
+          <strong>Prima</strong> berarti unggul dan berkualitas tinggi, sementara <strong>Nusantara</strong>
+          menegaskan identitas Indonesia dan cakupan pasar yang luas.
+        </p>
+        <p>
+          Kami berkomitmen menghadirkan solusi digital yang relevan, berdampak, dan berkelanjutan bagi
+          masyarakat Indonesia.
+        </p>
+      </section>
+
+      <section id="values" class="section section--alt container">
+        <h2>Nilai yang Kami Junjung</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>🌱 Tumbuh & Berkelanjutan</h3>
+            <p>Teknologi yang terus berevolusi dengan prinsip keberlanjutan.</p>
+          </article>
+          <article class="card">
+            <h3>🏆 Unggul & Andal</h3>
+            <p>Kualitas prima dalam setiap inisiatif dan solusi digital.</p>
+          </article>
+          <article class="card">
+            <h3>🇮🇩 Identitas Nusantara</h3>
+            <p>Berakar pada nilai dan kebutuhan Indonesia, berdampak nyata.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="section container">
+        <h2>Kontak</h2>
+        <p>
+          Ingin berdiskusi atau berkolaborasi? Tambahkan kanal kontak Anda (email, WhatsApp, atau tautan media sosial)
+          di bagian ini.
+        </p>
+        <div class="contact-box">
+          <!-- TODO: Ganti href berikut dengan email resmi, misal: mailto:hello@leafbyte.id -->
+          <a class="btn btn--primary" href="#" aria-disabled="true">Email Kami (segera)</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <span>© <span id="year"></span> LeafByte Prima Nusantara</span>
+        <span class="dot">•</span>
+        <span>Technology That Grows, Solutions That Thrive</span>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
