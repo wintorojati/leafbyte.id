@@ -1,116 +1,527 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LeafByte Prima Nusantara</title>
-    <meta name="description" content="LeafByte Prima Nusantara — an Indonesian technology company that grows with a spirit of sustainability, delivering outstanding digital solutions for the Nusantara." />
-
-    <!-- Open Graph / SEO -->
-    <meta property="og:title" content="LeafByte Prima Nusantara" />
-    <meta property="og:description" content="Technology That Grows, Solutions That Thrive" />
-    <meta property="og:image" content="LeafByteId.png" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://leafbyte.id" />
-
-    <!-- Favicon -->
-    <link rel="icon" href="LeafByteId.png" type="image/png" />
-
-    <!-- Fonts -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeafByte Prima Nusantara - Technology That Grows, Solutions That Thrive</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6CBE45',      /* LeafByte green */
+                        secondary: '#1D3B35',    /* LeafByte dark teal */
+                        success: '#6CBE45',      /* LeafByte green */
+                        slateGray: '#f8fafc',
+                        midnight_text: '#1D3B35', /* LeafByte dark teal */
+                        leafbyte: {
+                            green: '#6CBE45',
+                            teal: '#1D3B35',
+                            lightgreen: '#8ED065',
+                            lightteal: '#2A4E47'
+                        }
+                    },
+                    boxShadow: {
+                        'input-shadow': '0 4px 10px rgba(0, 0, 0, 0.05)',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Poppins (headers) and Roboto (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./LeafByteId_leafonly.png">
+    <!-- Custom styles -->
+    <style>
+        /* Body uses Roboto */
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        /* Headers and site header/nav use Poppins */
+        header, h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .course-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Content will go here -->
+    <div class="min-h-screen flex flex-col">
+        <!-- Navigation Bar -->
+        <header class="bg-white py-3 sticky top-0 z-50 shadow-sm">
+            <div class="container mx-auto px-4 flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="#home" class="flex items-center">
+                        <img src="./LeafByteId.png" alt="LeafByte Prima Nusantara" class="h-12 w-auto" />
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-sm font-medium text-gray-900 hover:text-primary">HOME</a>
+                    <a href="#services" class="text-sm font-medium text-gray-500 hover:text-primary">SERVICES</a>
+                    <a href="#projects" class="text-sm font-medium text-gray-500 hover:text-primary">PROJECTS</a>
+                    <a href="#about" class="text-sm font-medium text-gray-500 hover:text-primary">ABOUT</a>
+                    <a href="#blog" class="text-sm font-medium text-gray-500 hover:text-primary">BLOG</a>
+                    <a href="#contact" class="text-sm font-medium text-gray-500 hover:text-primary">CONTACT</a>
+                </nav>
+                
+                <!-- Authentication Buttons -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#contact" class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-leafbyte-lightgreen transition-colors">Get a Quote</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-secondary text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden bg-white absolute w-full shadow-md">
+                <div class="container mx-auto px-4 py-4 space-y-4">
+                    <a href="#home" class="block text-sm font-medium text-secondary hover:text-primary">HOME</a>
+                    <a href="#services" class="block text-sm font-medium text-secondary hover:text-primary">SERVICES</a>
+                    <a href="#projects" class="block text-sm font-medium text-secondary hover:text-primary">PROJECTS</a>
+                    <a href="#about" class="block text-sm font-medium text-secondary hover:text-primary">ABOUT</a>
+                    <a href="#blog" class="block text-sm font-medium text-secondary hover:text-primary">BLOG</a>
+                    <a href="#contact" class="block text-sm font-medium text-secondary hover:text-primary">CONTACT</a>
+                    <div class="flex flex-col space-y-2">
+                        <a href="#contact" class="bg-primary text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-leafbyte-lightgreen transition-colors text-center">Get a Quote</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Hero Section -->
+        <section id="home" class="bg-slate-50 py-16">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <!-- Left Content -->
+                    <div class="space-y-6">
+                        <h1 class="text-4xl md:text-5xl font-bold text-secondary leading-tight">Technology That Grows, Solutions That Thrive</h1>
+                        <p class="text-gray-600 text-lg">An Indonesian technology company delivering sustainable, high‑quality digital solutions for the Nusantara.</p>
+                        <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                            <a href="#services" class="bg-primary text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-leafbyte-lightgreen transition-colors w-full sm:w-auto text-center">Explore Services</a>
+                            <a href="#contact" class="bg-secondary text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-leafbyte-lightteal transition-colors w-full sm:w-auto text-center">Get a Quote</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Image -->
+                    <div class="flex justify-center">
+                        <div class="relative">
+                            <img src="https://placehold.co/500x400/e0f2fe/0369a1?text=LeafByte+Projects" alt="LeafByte Projects" class="rounded-lg max-w-full h-auto">
+                            <!-- Logo Accent -->
+                            <div class="absolute -bottom-6 -right-6 bg-white p-3 rounded-full shadow-md">
+                                <img src="./LeafByteId_leafonly.png" alt="LeafByte leaf logo" class="w-12 h-12">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Trusted Companies Section -->
+        <section id="clients" class="py-12 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-center text-gray-600 mb-10 text-lg font-medium">Trusted by companies of all sizes</h2>
+                <div class="flex flex-wrap justify-center items-center gap-12 md:gap-16">
+                    <!-- Company Logos - Using placeholder images for now -->
+                    <img src="https://placehold.co/120x40/f3f4f6/6b7280?text=Microsoft" alt="Microsoft" class="h-8 opacity-70 hover:opacity-100 transition-opacity">
+                    <img src="https://placehold.co/120x40/f3f4f6/6b7280?text=Airbnb" alt="Airbnb" class="h-8 opacity-70 hover:opacity-100 transition-opacity">
+                    <img src="https://placehold.co/120x40/f3f4f6/6b7280?text=FedEx" alt="FedEx" class="h-8 opacity-70 hover:opacity-100 transition-opacity">
+                    <img src="https://placehold.co/120x40/f3f4f6/6b7280?text=Atlassian" alt="Atlassian" class="h-8 opacity-70 hover:opacity-100 transition-opacity">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Services Section -->
+        <section id="services" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center mb-10">
+                    <h2 class="text-3xl font-bold text-secondary">Our Services.</h2>
+                    <a href="#contact" class="text-primary text-sm font-medium hover:underline">Start your project</a>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service Card: Web Development -->
+                    <div class="bg-white rounded-xl shadow-md p-6 course-card transition-all">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-slate-100 mb-4 text-secondary">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Web Development</h3>
+                        <p class="text-gray-600">Modern, responsive websites and web apps tailored to your business goals.</p>
+                    </div>
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header class="nav">
-      <div class="container nav__inner">
-        <a class="brand" href="#home">
-          <img class="brand__logo" src="LeafByteId_leafonly.png" alt="LeafByte Logo" />
-          <span class="brand__name">LeafByte</span>
-        </a>
-        <nav class="menu">
-          <a href="#about">About</a>
-          <a class="btn btn--primary" href="#contact">Contact Us</a>
-        </nav>
-      </div>
-    </header>
+                    <!-- Service Card: Mobile App Development -->
+                    <div class="bg-white rounded-xl shadow-md p-6 course-card transition-all">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-slate-100 mb-4 text-secondary">
+                            <i class="fas fa-mobile-screen-button"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Mobile App Development</h3>
+                        <p class="text-gray-600">iOS and Android apps with seamless UX and robust performance.</p>
+                    </div>
 
-    <main id="home">
-      <section class="hero container">
-        <div class="hero__content">
-          <h1>LeafByte Prima Nusantara</h1>
-          <p class="tagline">Technology That Grows, Solutions That Thrive</p>
-          <p class="lede">
-            An Indonesian technology company that grows with a spirit of sustainability,
-            delivering outstanding digital solutions for the Nusantara.
-          </p>
-          <div class="actions">
-            <a class="btn btn--ghost" href="#contact">Contact Us</a>
-          </div>
-        </div>
-        <div class="hero__visual">
-          <img src="LeafByteId.png" alt="LeafByte Identity" />
-        </div>
-      </section>
+                    <!-- Service Card: Application Development -->
+                    <div class="bg-white rounded-xl shadow-md p-6 course-card transition-all">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-slate-100 mb-4 text-secondary">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Application Development</h3>
+                        <p class="text-gray-600">Custom software solutions to streamline operations and scale efficiently.</p>
+                    </div>
 
-      <section id="about" class="section container">
-        <h2>About LeafByte</h2>
-        <p>
-          "Leaf" symbolizes growth, sustainability, and life.<br>
-          "Byte" is a unit of digital data—representing technology and modernity. <br>
-          Together they become <strong>LeafByte</strong>: digital innovation that grows naturally.
-        </p>
-        <p>
-          <strong>Prima</strong> means prime and high quality, while <strong>Nusantara</strong> affirms Indonesian identity and a broad market reach.
-        </p>
-        <p>
-          We are committed to delivering relevant, impactful, and sustainable digital solutions.
-        </p>
-      </section>
+                    <!-- Service Card: E-commerce Development -->
+                    <div class="bg-white rounded-xl shadow-md p-6 course-card transition-all">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-slate-100 mb-4 text-secondary">
+                            <i class="fas fa-cart-shopping"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">E-commerce Development</h3>
+                        <p class="text-gray-600">Secure, scalable online stores with conversion-focused design.</p>
+                    </div>
 
-      <!-- <section id="values" class="section section--alt container">
-        <h2>Our Core Values</h2>
-        <div class="cards">
-          <article class="card">
-            <h3>🌱 Growth & Sustainability</h3>
-            <p>Technology that continuously evolves with sustainability principles.</p>
-          </article>
-          <article class="card">
-            <h3>🏆 Excellence & Reliability</h3>
-            <p>Prime quality in every initiative and digital solution.</p>
-          </article>
-          <article class="card">
-            <h3>🇮🇩 Nusantara Identity</h3>
-            <p>Rooted in Indonesian values and needs, creating real impact.</p>
-          </article>
-        </div>
-      </section> -->
+                    <!-- Service Card: IoT / Smart Device Development -->
+                    <div class="bg-white rounded-xl shadow-md p-6 course-card transition-all">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-slate-100 mb-4 text-secondary">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">IoT / Smart Device Development</h3>
+                        <p class="text-gray-600">Connected device solutions bridging hardware and software.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Projects Section -->
+        <section id="projects" class="py-16 bg-slate-50">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center mb-10">
+                    <h2 class="text-3xl font-bold text-secondary">Projects.</h2>
+                    <a href="#contact" class="text-primary text-sm font-medium hover:underline">Work with us</a>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Card 1 -->
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                        <img src="https://placehold.co/600x380/e0f2fe/0369a1?text=Case+Study+%231" alt="Case Study 1" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg mb-2">AgriTech Marketplace</h3>
+                            <p class="text-gray-600">A scalable web platform connecting local producers with nationwide buyers.</p>
+                        </div>
+                    </div>
+                    <!-- Project Card 2 -->
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                        <img src="https://placehold.co/600x380/f1f5f9/334155?text=Case+Study+%232" alt="Case Study 2" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg mb-2">Logistics Mobile App</h3>
+                            <p class="text-gray-600">Android app improving delivery routing and on‑time performance.</p>
+                        </div>
+                    </div>
+                    <!-- Project Card 3 -->
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                        <img src="https://placehold.co/600x380/eff6ff/1e3a8a?text=Case+Study+%233" alt="Case Study 3" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg mb-2">IoT Monitoring Dashboard</h3>
+                            <p class="text-gray-600">Real‑time device telemetry and alerting for smart facilities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Why Choose Us Section -->
+        <section id="about" class="py-16 bg-slate-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-secondary mb-2">Why choose us.</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Value 1: Sustainability -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-full bg-slate-100 text-secondary mb-4">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Sustainability</h3>
+                        <p class="text-gray-600">We build with long-term impact in mind—efficient, maintainable, and responsible.</p>
+                    </div>
+                    <!-- Value 2: Quality -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-full bg-slate-100 text-secondary mb-4">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Quality</h3>
+                        <p class="text-gray-600">Robust engineering practices and thorough testing for reliable products.</p>
+                    </div>
+                    <!-- Value 3: Delivery -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-full bg-slate-100 text-secondary mb-4">
+                            <i class="fas fa-truck-fast"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Delivery</h3>
+                        <p class="text-gray-600">Transparent process and on-time delivery with iterative collaboration.</p>
+                    </div>
+                    <!-- Value 4: Local Expertise -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-full bg-slate-100 text-secondary mb-4">
+                            <i class="fas fa-location-dot"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Local Expertise</h3>
+                        <p class="text-gray-600">Deep understanding of Indonesian market needs and user behavior.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-secondary mb-2">What our clients say.</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/60x60/e0f2fe/0369a1?text=User" alt="User" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold">Jese Leos</h4>
+                                <p class="text-gray-600 text-sm">CTO, Tech Startup</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4">"LeafByte delivered a reliable web platform on time. Great communication and execution."</p>
+                        <div class="flex text-primary">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/60x60/e0f2fe/0369a1?text=User" alt="User" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold">Bonnie Green</h4>
+                                <p class="text-gray-600 text-sm">Product Designer</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4">"They understood our needs and built a beautiful, scalable e‑commerce site."</p>
+                        <div class="flex text-primary">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/60x60/e0f2fe/0369a1?text=User" alt="User" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold">Michael Gough</h4>
+                                <p class="text-gray-600 text-sm">Operations Lead</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4">"From discovery to launch, the team was proactive and kept us informed."</p>
+                        <div class="flex text-primary">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pagination Dots -->
+                <div class="flex justify-center mt-8 space-x-2">
+                    <button class="w-3 h-3 rounded-full bg-primary"></button>
+                    <button class="w-3 h-3 rounded-full bg-gray-300"></button>
+                    <button class="w-3 h-3 rounded-full bg-gray-300"></button>
+                </div>
+            </div>
+        </section>
 
-      <section id="contact" class="section container">
-        <h2>Contact</h2>
-        <p>
-          Want to discuss or collaborate?
-        </p>
-        <div class="contact-box">
-          <!-- TODO: Replace the href below with the official email, e.g., mailto:hello@leafbyte.id -->
-          <a class="btn btn--primary" href="mailto:wint.design@gmail.com">Email Us</a>
-        </div>
-      </section>
-    </main>
+        <!-- Blog Section -->
+        <section id="blog" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-secondary mb-2">Insights.</h2>
+                    <p class="text-gray-600">Ideas on product, technology, and sustainability.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Post 1 -->
+                    <article class="bg-white rounded-xl shadow-md overflow-hidden">
+                        <img src="https://placehold.co/600x360/f1f5f9/334155?text=Post+Image" alt="Post 1" class="w-full h-44 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-semibold text-lg mb-2">Designing Sustainable Web Apps</h3>
+                            <p class="text-gray-600 text-sm">Principles for efficient, maintainable digital products.</p>
+                        </div>
+                    </article>
+                    <!-- Post 2 -->
+                    <article class="bg-white rounded-xl shadow-md overflow-hidden">
+                        <img src="https://placehold.co/600x360/e0f2fe/0369a1?text=Post+Image" alt="Post 2" class="w-full h-44 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-semibold text-lg mb-2">From MVP to Scale in Indonesia</h3>
+                            <p class="text-gray-600 text-sm">What to consider when growing your product locally.</p>
+                        </div>
+                    </article>
+                    <!-- Post 3 -->
+                    <article class="bg-white rounded-xl shadow-md overflow-hidden">
+                        <img src="https://placehold.co/600x360/eff6ff/1e3a8a?text=Post+Image" alt="Post 3" class="w-full h-44 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-semibold text-lg mb-2">IoT Reliability in the Field</h3>
+                            <p class="text-gray-600 text-sm">Telemetry, alerts, and designing for the real world.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-    <footer class="footer">
-      <div class="container footer__inner">
-        <span>© <span id="year"></span> LeafByte Prima Nusantara</span>
-        <span class="dot">•</span>
-        <span>Technology That Grows, Solutions That Thrive</span>
-      </div>
-    </footer>
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 bg-slate-50">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <h2 class="text-3xl font-bold text-secondary mb-4">Start your project.</h2>
+                        <p class="text-gray-600 mb-6">Tell us about your goals and we’ll get back to you shortly.</p>
+                        <form class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <input type="text" placeholder="Full name" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/30" required>
+                                <input type="email" placeholder="Email" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/30" required>
+                            </div>
+                            <input type="text" placeholder="Company" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/30">
+                            <textarea placeholder="Project brief" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/30"></textarea>
+                            <button type="submit" class="bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-leafbyte-lightgreen transition-colors">Send Request</button>
+                        </form>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
+                            <span class="text-gray-600">Jakarta, Indonesia</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-primary mr-3"></i>
+                            <span class="text-gray-600">+62 812 3456 7890</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-primary mr-3"></i>
+                            <span class="text-gray-600">hello@leafbyte.id</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Band -->
+        <section class="py-16 bg-gradient-to-r from-leafbyte-green to-leafbyte-teal text-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="text-3xl font-bold mb-4">Ready to build something great?</h2>
+                    <p class="mb-8">Partner with LeafByte to design, build, and scale sustainable digital products.</p>
+                    <a href="#contact" class="inline-block bg-white text-secondary px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors">Talk to us</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer Section -->
+        <footer class="bg-slate-50 py-12">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Logo and Social Links -->
+                    <div class="space-y-4">
+                        <a href="#home" class="flex items-center">
+                            <img src="./LeafByteId.png" alt="LeafByte Prima Nusantara" class="h-20 w-auto" />
+                        </a>
+                        <div class="flex space-x-4 mt-4">
+                            <a href="#" class="text-gray-500 hover:text-primary">
+                                <i class="fab fa-2x fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-primary">
+                                <i class="fab fa-2x fa-twitter"></i>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-primary">
+                                <i class="fab fa-2x fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Links -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 text-secondary">Links</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="text-gray-600 hover:text-primary">Home</a></li>
+                            <li><a href="#about" class="text-gray-600 hover:text-primary">About Us</a></li>
+                            <li><a href="#services" class="text-gray-600 hover:text-primary">Services</a></li>
+                            <li><a href="#clients" class="text-gray-600 hover:text-primary">Clients</a></li>
+                            <li><a href="#blog" class="text-gray-600 hover:text-primary">Blog</a></li>
+                            <li><a href="#contact" class="text-gray-600 hover:text-primary">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Other -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 text-secondary">Other</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-600 hover:text-primary">Privacy Policy</a></li>
+                            <li><a href="#" class="text-gray-600 hover:text-primary">Terms & Conditions</a></li>
+                            <li><a href="#" class="text-gray-600 hover:text-primary">FAQ</a></li>
+                            <li><a href="#" class="text-gray-600 hover:text-primary">Support</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Contact -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 text-secondary">Contact</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-primary mt-1 mr-2"></i>
+                                <span class="text-gray-600">Jakarta, Indonesia</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-phone text-primary mr-2"></i>
+                                <span class="text-gray-600">+62 812 3456 7890</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-envelope text-primary mr-2"></i>
+                                <span class="text-gray-600">hello@leafbyte.id</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Copyright -->
+                <div class="border-t border-gray-200 mt-8 pt-8 text-center text-gray-500 text-sm">
+                    <p>&copy; 2025 LeafByte Prima Nusantara. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
 
+    <!-- JavaScript for interactivity -->
     <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
     </script>
-  </body>
+</body>
 </html>
+
