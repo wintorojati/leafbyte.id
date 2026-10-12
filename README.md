@@ -1,4 +1,4 @@
-# LeafByte Prima Nusantara
+# PT Leaf Byte Afinara
 
 An Indonesian technology company that grows with a spirit of sustainability, delivering outstanding digital solutions for the Nusantara.
 
